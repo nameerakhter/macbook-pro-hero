@@ -4,6 +4,8 @@ export function MacbookContainer() {
   let model = useGLTF("./mac.glb")
   console.log(model)
   return (
-    <primitive object={model.scene} />
+    <group position={[0, -10, 20]} >
+      <primitive object={model.scene} />
+    </group>
   )
 }
