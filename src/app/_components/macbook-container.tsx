@@ -1,8 +1,7 @@
-
-import { useGLTF, useScroll, useTexture } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
-import * as THREE from "three"
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js"
+import { useGLTF, useScroll, useTexture } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import * as THREE from 'three'
+import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -10,21 +9,21 @@ type GLTFResult = GLTF & {
     matte: THREE.Mesh
   }
   materials: {
-    ["Material.001"]: THREE.MeshStandardMaterial
+    ['Material.001']: THREE.MeshStandardMaterial
   }
 }
 
 export function MacbookContainer() {
   //@ts-ignore
-  let model = useGLTF("./mac.glb") as GLTF as GLTFResult
-  let texture = useTexture("./red.jpg")
+  let model = useGLTF('./mac.glb') as GLTF as GLTFResult
+  let texture = useTexture('./red.jpg')
   let meshes: { [name: string]: THREE.Object3D } = {}
   model.scene.traverse((e: THREE.Object3D) => {
     meshes[e.name] = e
   })
 
-  const screen = meshes["screen"] as THREE.Mesh
-  const matte = meshes["matte"] as THREE.Mesh
+  const screen = meshes['screen'] as THREE.Mesh
+  const matte = meshes['matte'] as THREE.Mesh
 
   screen.rotation.x = THREE.MathUtils.degToRad(180)
   if (matte && matte.material instanceof THREE.MeshStandardMaterial) {
