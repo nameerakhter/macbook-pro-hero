@@ -14,10 +14,10 @@ type GLTFResult = GLTF & {
 }
 
 export function MacbookContainer() {
-  //@ts-expect-error
-  let model = useGLTF('./mac.glb') as GLTF as GLTFResult
-  let texture = useTexture('./red.jpg')
-  let meshes: { [name: string]: THREE.Object3D } = {}
+  //@ts-expect-error :Type error bcz react-three  fiber is still not compatible with react 19
+  const model = useGLTF('./mac.glb') as GLTF as GLTFResult
+  const texture = useTexture('./red.jpg')
+  const meshes: { [name: string]: THREE.Object3D } = {}
   model.scene.traverse((e: THREE.Object3D) => {
     meshes[e.name] = e
   })
@@ -32,7 +32,7 @@ export function MacbookContainer() {
     matte.material.metalness = 0
     matte.material.roughness = 1
   }
-  let data = useScroll()
+  const data = useScroll()
   useFrame(() => {
     screen.rotation.x = THREE.MathUtils.degToRad(180 - data.offset * 90)
   })
