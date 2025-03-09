@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore --cache ."
   },
   "dependencies": {
     "@react-three/drei": "latest",
@@ -15,7 +16,9 @@
     "next": "15.2.1",
     "react": "latest",
     "react-dom": "latest",
-    "three": "^0.174.0"
+    "three": "^0.174.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
