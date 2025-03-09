@@ -14,7 +14,7 @@ type GLTFResult = GLTF & {
 }
 
 export function MacbookContainer() {
-  //@ts-ignore
+  //@ts-expect-error
   let model = useGLTF('./mac.glb') as GLTF as GLTFResult
   let texture = useTexture('./red.jpg')
   let meshes: { [name: string]: THREE.Object3D } = {}
