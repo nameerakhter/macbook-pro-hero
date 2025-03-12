@@ -1,16 +1,6 @@
 import { useProgress } from '@react-three/drei'
 import { useEffect, useState } from 'react'
-
-const loadingMessages = [
-  { threshold: 0, message: "Powering up..." },
-  { threshold: 15, message: "Polishing the aluminum..." },
-  { threshold: 30, message: "Calibrating retina display..." },
-  { threshold: 45, message: "Installing butterfly keyboard... just kidding!" },
-  { threshold: 60, message: "Maximizing performance..." },
-  { threshold: 75, message: "Cooling down the M2 chip..." },
-  { threshold: 85, message: "Aligning pixels perfectly..." },
-  { threshold: 95, message: "Almost ready..." },
-]
+import { loadingMessages } from '../constants'
 
 export function LoadingScreen() {
   const { progress, loaded, total } = useProgress()
@@ -25,8 +15,8 @@ export function LoadingScreen() {
   if (!show) return null
 
   const currentMessage = loadingMessages
-    .reduce((acc, { threshold, message }) => 
-      progress >= threshold ? message : acc, 
+    .reduce((acc, curr) => 
+      progress >= curr.threshold ? curr.message : acc, 
       loadingMessages[0].message
     )
 
