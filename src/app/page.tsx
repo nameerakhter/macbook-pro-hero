@@ -2,14 +2,27 @@
 
 import { Environment, ScrollControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import { Suspense } from 'react'
+import { LoadingScreen } from './_components/loading-screen'
 import { MacbookContainer } from './_components/macbook-container'
 
 const products = ['MacBook Pro', 'iPhone', 'iPad', 'Apple Watch', 'AirPods']
 
 export default function Home() {
   return (
-    <div className="font-(family-name:'Helvetica_Now_Display') h-screen w-full">
-      <nav className="absolute top-0 left-0 w-full py-10">
+    <div className="font-(family-name:'Helvetica_Now_Display') h-screen w-full relative overflow-hidden">
+      <LoadingScreen />
+      <div className="absolute inset-0">
+        <Canvas>
+          <Suspense fallback={null}>
+            <ScrollControls pages={3} damping={0.1}>
+              <MacbookContainer />
+            </ScrollControls>
+            <Environment preset="city" />
+          </Suspense>
+        </Canvas>
+      </div>
+      <nav className="absolute top-0 left-0 w-full py-10 z-10">
         <ul className="flex justify-center space-x-4">
           {products.map((product) => (
             <li key={product} className="font-[400] text-white">
