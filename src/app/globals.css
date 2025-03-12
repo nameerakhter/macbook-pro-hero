@@ -76,16 +76,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.apple-loader-circle {
-  stroke-dasharray: 314;
-  stroke-dashoffset: 314;
-  transform-origin: 50% 50%;
-  transform: rotate(-90deg);
-  transition: stroke-dashoffset 0.3s ease;
-}
-
-.apple-logo-fill {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 0.3s ease;
-}
