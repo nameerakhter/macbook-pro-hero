@@ -37,7 +37,7 @@ export function MacbookContainer() {
     screen.rotation.x = THREE.MathUtils.degToRad(180 - data.offset * 90)
   })
   return (
-    <group position={[0, -10, 20]}>
+    <group position={[0, -6, 0]} rotation={[0, 0, 0]} scale={0.98}>
       <primitive object={model.scene} />
     </group>
   )
