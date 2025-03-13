@@ -14,8 +14,9 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Screenshot
+![Screenshot 2025-03-09 151821](https://github.com/user-attachments/assets/97aa3494-ef3d-44c2-8558-27e6c4e4014a)
 
-Add a screenshot of your application here:
+
 
 ![Screenshot](./screenshot.png)
 
